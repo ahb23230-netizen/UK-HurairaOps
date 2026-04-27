@@ -3,8 +3,8 @@
 
 export const stripeConfig = {
   // Test Keys (use these for development)
-  publishableKey: 'pk_test_51TLSuUE12kH4RZGsupxLxq1tJFp88ParrnOFP5YwtHu5CnKaAjKPkyJiguq58h59lN6MkwCeS2WpjshcOHFH51O100156QhC7n',
-  secretKey: 'sk_test_51TLSuUE12kH4RZGsooPdGS9kZ5whvwzjErKi5O6KgstNCkaOqkTsoqHZSQr4UAnnHwXHf5CuKdsTfXKAAnNspGRg00gxpTL04o',
+  publishableKey: 'pk_test_YOUR_PUBLISHABLE_KEY_HERE',
+  secretKey: 'sk_test_YOUR_SECRET_KEY_HERE',
 
   // API Version
   apiVersion: '2024-12-18.acacia',
@@ -12,7 +12,7 @@ export const stripeConfig = {
   // Pricing Plans
   prices: {
     starter: {
-      priceId: 'price_starter_monthly', // Will be created in Stripe Dashboard
+      priceId: 'price_starter_monthly',
       amount: 1900, // £19.00 in pence
       currency: 'gbp',
     },
@@ -29,10 +29,10 @@ export const stripeConfig = {
   },
 
   // Webhook Secret
-  webhookSecret: 'whsec_p22ne8p36VqhZrWcR1iTRvAHRlUV6ZC2',
+  webhookSecret: 'whsec_YOUR_WEBHOOK_SECRET_HERE',
 
   // Site URL - Update this to your production URL
-  siteUrl: 'https://os68o4ezkl4y.space.minimax.io',
+  siteUrl: 'https://YOUR_PRODUCTION_URL_HERE',
 };
 
 // Export for use in frontend
