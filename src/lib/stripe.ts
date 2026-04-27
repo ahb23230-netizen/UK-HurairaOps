@@ -13,17 +13,17 @@ export const stripeConfig = {
   prices: {
     starter: {
       priceId: 'price_starter_monthly',
-      amount: 1900, // £19.00 in pence
+      amount: 1900,
       currency: 'gbp',
     },
     professional: {
       priceId: 'price_professional_monthly',
-      amount: 4900, // £49.00 in pence
+      amount: 4900,
       currency: 'gbp',
     },
     business: {
       priceId: 'price_business_monthly',
-      amount: 9900, // £99.00 in pence
+      amount: 9900,
       currency: 'gbp',
     },
   },
