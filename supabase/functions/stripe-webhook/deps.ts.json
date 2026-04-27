@@ -1,0 +1,5 @@
+{
+  "name": "stripe-webhook",
+  "version": "1.0.0",
+  "description": "Handle Stripe webhooks for UK Hospitality Compliance"
+}

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: uk-hospitality-api
+    env: node
+    region: london
+    plan: free
+    startCommand: node index.mjs
+    healthCheckPath: /api/health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
