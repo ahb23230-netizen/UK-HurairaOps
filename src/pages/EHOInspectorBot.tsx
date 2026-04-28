@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-
+import { useSubscription } from '../contexts/SubscriptionContext';
 // Simple markdown parser
 const parseMarkdown = (text: string): string => {
   let html = text;
@@ -141,6 +141,7 @@ export default function EHOInspectorBot() {
   const [error, setError] = useState<string | null>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const { plan } = useSubscription();
 
   // New Quick Questions with icons
   const quickQuestions: QuickQuestion[] = [
@@ -182,9 +183,10 @@ export default function EHOInspectorBot() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
+          body: JSON.stringify({
           messages: claudeMessages,
-          systemPrompt: SYSTEM_PROMPT
+          systemPrompt: SYSTEM_PROMPT,
+          plan: plan
         })
       });
 
