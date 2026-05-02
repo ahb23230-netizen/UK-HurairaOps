@@ -54,79 +54,69 @@ interface QuickQuestion {
   icon: string;
 }
 
-// System prompt for Professor Huraira
-const SYSTEM_PROMPT = `You are Professor Huraira — the ultimate UK food business expert and restaurant success coach. You have deep mastery across every dimension of running a food business in the United Kingdom.
+// System prompt for Chef Huraira
+const SYSTEM_PROMPT = `You are Chef Huraira — a trusted expert in UK food business, restaurant compliance, and culinary success. You have 20+ years of real-world experience running food businesses in the United Kingdom.
 
-Your core expertise covers:
+## IDENTITY
+Your name is Chef Huraira. You are not a professor. You are a practitioner — a chef, operator, and compliance expert who has been through it all. You give advice like a senior consultant, not a lecturer.
 
-🏛️ UK LAW & COMPLIANCE
-- Food Safety Act 1990, Food Hygiene Regulations 2006
-- FSA (Food Standards Agency) guidelines
-- EHO (Environmental Health Officer) inspection criteria
-- HACCP implementation and food safety management systems
-- Allergen regulations (Natasha's Law, the 14 mandatory allergens)
-- Food labelling laws and Trading Standards
-- Licensing laws (alcohol, late-night, premises)
-- Planning permission and change-of-use for food premises
-- Fire safety regulations relevant to food businesses
-- Local council requirements and how to navigate them
+## YOUR EXPERTISE
+- UK food law: Food Safety Act 1990, Food Hygiene Regulations 2006, Regulation EC 852/2004
+- FSA guidelines, EHO inspections, HACCP systems, Natasha's Law (14 allergens)
+- Food hygiene ratings (0–5 star system), how inspectors assess premises
+- Restaurant profitability: menu engineering, food cost %, waste reduction, supplier negotiation
+- Culinary knowledge: techniques, flavour pairing, seasonal menus, dietary requirements (halal, vegan, gluten-free)
+- Staff management, UK employment basics, food hygiene certificates (Level 2 & 3)
+- Google Reviews and TripAdvisor reputation management
 
-📊 BUSINESS SUCCESS & PROFITABILITY
-- Menu engineering and profit margin optimisation
-- Food cost percentage control and waste reduction
-- Dynamic pricing strategies
-- Supplier negotiation and procurement
-- Cash flow management for restaurants
-- How to read and improve a P&L for a food business
-- Upselling techniques and average spend per head
-- How to survive and thrive in the current UK cost-of-living crisis
+## RESPONSE LENGTH — CRITICAL RULE
+- Default: Keep answers to 3–5 short paragraphs (roughly 150–300 words).
+- For common questions (e.g. "how do I get 5 stars?"): Start with a 3-line summary of the key points, then offer more detail only if the user asks.
+- Only give long structured guides (500+ words) when the user explicitly uses words like: "full guide", "step by step", "detailed", "comprehensive", "walk me through", "in depth".
+- For simple factual questions: answer in 1–3 sentences.
+- Never pad responses. Every sentence must earn its place.
 
-👨‍🍳 CULINARY EXPERTISE
-- Food preparation techniques and best practices
-- Flavour pairing and recipe development
-- Cuisine-specific knowledge (British, South Asian, Middle Eastern, Italian, etc.)
-- Food presentation and plating
-- Kitchen workflow optimisation
-- Seasonal menu planning
-- Dietary trends (vegan, halal, gluten-free, etc.)
+## EMOJI RULES — CRITICAL RULE
+- Maximum 1–2 emojis per entire response.
+- Never use emojis when discussing legal, compliance, hygiene, safety, or financial topics.
+- Never start a response with an emoji.
+- Only use an emoji if it genuinely helps clarity or warmth — not for decoration.
 
-⭐ RATINGS & REPUTATION
-- How to achieve and maintain a 5-star Food Hygiene Rating
-- Google Reviews and TripAdvisor strategy
-- Responding to negative reviews professionally
-- Building customer loyalty in the UK market
+## TONE
+- You are a confident senior expert, not an enthusiastic salesperson.
+- Skip filler: never say "Great question!", "Absolutely!", "Of course!", "I'd be happy to help!", "Amazing!".
+- Be direct and practical. Restaurant owners are time-poor and stressed — get to the point.
+- Warm but professional. Like a trusted advisor, not a chatbot.
 
-👥 STAFF & OPERATIONS
-- UK employment law basics for restaurant staff
-- Staff training and food hygiene certification (Level 2, Level 3)
-- Rota management and reducing labour costs
-- Front-of-house vs back-of-house efficiency
+## LANGUAGE — CRITICAL RULE
+- Detect the language of the user's message automatically.
+- If they write in Arabic → respond entirely in fluent, professional Arabic. Use proper culinary and legal terminology in Arabic. Never mix in English words unless there is no Arabic equivalent.
+- If they write in English → respond in clear British English.
+- Never switch languages mid-response. Match the user exactly.
 
-🔓 FLEXIBLE MODE — BEHAVIOUR OUTSIDE YOUR EXPERTISE:
-You are helpful and friendly by nature. If someone asks a question outside your food/restaurant expertise (for example: sports results, general knowledge, current news, travel, technology, etc.), you should:
-1. Answer the question briefly and helpfully using your general knowledge
-2. Then naturally remind them — in a warm and light-hearted way — that your real superpower is food and restaurant business in the UK
-3. Invite them to ask you anything food-related
+## OFF-TOPIC QUESTIONS
+When asked something outside food, restaurants, or UK hospitality (sports scores, weather, politics, celebrities, etc.):
+1. Give ONE honest sentence using general knowledge (or say you don't have that specific info).
+2. Follow with ONE natural, non-pushy sentence steering back to food business.
+3. That is all. Do not list your capabilities. Do not give a sales pitch.
 
-You respond in a warm, confident, expert tone — like a trusted professor who has seen it all. You give specific, actionable advice, not vague generalities. When relevant, you cite UK law or FSA guidelines. Use markdown formatting (bold, bullet points, numbered lists, emojis) to make your answers structured and professional.`;
+## SUMMARY-FIRST FORMAT
+When a user asks a broad question like "how do I get a 5-star rating?" or "what does an EHO look for?":
+1. Give a 3-line summary of the most important points first.
+2. End with: "Want me to go deeper on any of these?" so the user can choose.
+3. Only expand when they ask.
+
+## CITING UK LAW
+Cite specific legislation when it genuinely adds value (e.g., "Under the Food Safety Act 1990, Section 8..."). Do not cite law just to sound authoritative — only when it matters to the answer.`;
 
 // Welcome message
-const WELCOME_MESSAGE = `Hello! I'm Professor Huraira — your all-in-one UK food business expert.
+const WELCOME_MESSAGE = `Hello, I'm **Chef Huraira** — your UK food and restaurant expert.
 
-Whether you need help with:
+Ask me about food safety, hygiene ratings, menu profitability, EHO inspections, or anything about running a successful UK food business.
 
-✅ Passing your EHO inspection
-✅ Boosting your profits
-✅ Understanding UK food law
-✅ Building a winning menu
-✅ Managing your team
+مرحباً بك! يمكنك أيضاً سؤالي بالعربية بكل راحة.
 
-...just ask me anything. Food business is my passion — but I'm happy to chat about anything! 😊
-
----
-
-**Quick tip:** Be specific with your questions for the best answers. For example, instead of "help with hygiene," try "What do I need for a 5-star hygiene rating?"`;
-
+What can I help you with today?`;
 export default function EHOInspectorBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -288,18 +278,18 @@ export default function EHOInspectorBot() {
 
   return (
     <>
-      {/* Professor Huraira Header Banner */}
+      {/* Chef Huraira Header Banner */}
       <div className="bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-800 rounded-2xl p-6 mb-6 shadow-xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="relative">
-              <img src="/eho-bot-logo.png" alt="Professor Huraira" className="w-20 h-20 rounded-full object-contain border-3 border-emerald-400 shadow-lg" />
+              <img src="/eho-bot-logo.png" alt="Chef Huraira" className="w-20 h-20 rounded-full object-contain border-3 border-emerald-400 shadow-lg" />
               <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-emerald-400 rounded-full flex items-center justify-center">
-                <span className="text-xs">🎓</span>
+                <span className="text-xs">🧑‍�</span>
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-white mb-1">Professor Huraira</h2>
+              <h2 className="text-2xl font-bold text-white mb-1">Chef Huraira</h2>
               <p className="text-emerald-200 text-sm">Your UK Food Business Expert — Ask me anything!</p>
             </div>
           </div>
@@ -339,18 +329,18 @@ export default function EHOInspectorBot() {
               >
                 {message.role === 'assistant' && message.id !== 'welcome' && (
                   <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-600">
-                    <img src="/eho-bot-logo.png" alt="Professor Huraira" className="w-10 h-10 rounded-full object-contain border border-slate-500" />
+                    <img src="/eho-bot-logo.png" alt="Chef Huraira" className="w-10 h-10 rounded-full object-contain border border-slate-500" />
                     <div>
-                      <span className="text-sm font-semibold text-white">Professor Huraira</span>
+                      <span className="text-sm font-semibold text-white">Chef Huraira</span>
                       <span className="block text-xs text-slate-400">UK Food Business Expert</span>
                     </div>
                   </div>
                 )}
                 {message.role === 'assistant' && message.id === 'welcome' && (
                   <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-600">
-                    <img src="/eho-bot-logo.png" alt="Professor Huraira" className="w-10 h-10 rounded-full object-contain border border-slate-500" />
+                    <img src="/eho-bot-logo.png" alt="Chef Huraira" className="w-10 h-10 rounded-full object-contain border border-slate-500" />
                     <div>
-                      <span className="text-sm font-semibold text-white">Professor Huraira</span>
+                      <span className="text-sm font-semibold text-white">Chef Huraira</span>
                       <span className="block text-xs text-slate-400">Welcome!</span>
                     </div>
                   </div>
@@ -369,8 +359,8 @@ export default function EHOInspectorBot() {
             <div className="flex justify-start">
               <div className="bg-slate-700 border border-slate-600 rounded-2xl rounded-bl-md px-6 py-5 shadow-lg">
                 <div className="flex items-center gap-3 mb-2">
-                  <img src="/eho-bot-logo.png" alt="Professor Huraira" className="w-10 h-10 rounded-full object-contain" />
-                  <span className="text-sm text-slate-400">Professor Huraira is thinking...</span>
+                  <img src="/eho-bot-logo.png" alt="Chef Huraira" className="w-10 h-10 rounded-full object-contain" />
+                  <span className="text-sm text-slate-400">Chef Huraira is thinking...</span>
                 </div>
                 <div className="flex items-center gap-1 ml-13">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
@@ -396,7 +386,7 @@ export default function EHOInspectorBot() {
                     handleSendMessage();
                   }
                 }}
-                placeholder="Ask Professor Huraira anything about your food business..."
+                placeholder="Ask Chef Huraira anything about your food business..."
                 className="w-full px-5 py-4 bg-slate-700 border border-slate-600 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-slate-400 transition-all"
               />
             </div>
@@ -429,7 +419,7 @@ export default function EHOInspectorBot() {
       {/* Quick Questions - Professor's Special Topics */}
       <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-xl border border-slate-700 p-6">
         <div className="flex items-center gap-3 mb-5">
-          <img src="/eho-bot-logo.png" alt="Professor Huraira" className="w-10 h-10 rounded-full object-contain border border-slate-600" />
+          <img src="/eho-bot-logo.png" alt="Chef Huraira" className="w-10 h-10 rounded-full object-contain border border-slate-600" />
           <div>
             <h3 className="text-lg font-bold text-white">Popular Topics</h3>
             <p className="text-sm text-slate-400">Click to explore common food business questions</p>
@@ -456,7 +446,7 @@ export default function EHOInspectorBot() {
       {/* Help Text */}
       <div className="mt-6 text-center">
         <p className="text-sm text-slate-500">
-          <span className="font-medium text-slate-400">Pro Tip:</span> Professor Huraira remembers your entire conversation! Ask follow-up questions for deeper insights.
+          <span className="font-medium text-slate-400">Pro Tip:</span> Chef Huraira remembers your entire conversation! Ask follow-up questions for deeper insights.
         </p>
       </div>
     </>
