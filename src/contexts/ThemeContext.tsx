@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Theme = 'dark' | 'light' | 'midnight';
+export type Theme = 'dark' | 'gaming' | 'light' | 'midnight';
 
 interface ThemeContextType {
   theme: Theme;
@@ -22,7 +22,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.remove('theme-dark', 'theme-light', 'theme-midnight', 'dark');
+    root.classList.remove('theme-dark', 'theme-gaming', 'theme-light', 'theme-midnight', 'dark');
     root.classList.add(`theme-${theme}`);
     if (theme !== 'light') {
       root.classList.add('dark');

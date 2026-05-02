@@ -6,9 +6,52 @@
    THEME VARIABLES
    ================================================ */
 
-/* Dark (Dim) — Default — like Replit */
+/* ── DARK (Replit-style) — DEFAULT ── */
 :root,
 .theme-dark {
+  --bg-main: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-card: #2a2a2a;
+  --bg-hover: #333333;
+  --text-primary: #e8e8e8;
+  --text-secondary: #c0c0c0;
+  --text-muted: #888888;
+  --border-color: #333333;
+  --input-bg: #2f2f2f;
+
+  --background: 0 0% 10%;
+  --foreground: 0 0% 91%;
+  --card: 0 0% 16%;
+  --card-foreground: 0 0% 91%;
+  --popover: 0 0% 16%;
+  --popover-foreground: 0 0% 91%;
+  --primary: 142 40% 26%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 17%;
+  --secondary-foreground: 0 0% 91%;
+  --muted: 0 0% 17%;
+  --muted-foreground: 0 0% 53%;
+  --accent: 0 0% 20%;
+  --accent-foreground: 0 0% 91%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 142 40% 26%;
+  --radius: 0.5rem;
+
+  --sidebar-background: 0 0% 11%;
+  --sidebar-foreground: 0 0% 91%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 15%;
+  --sidebar-accent-foreground: 0 0% 91%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+/* ── GAMING (Blue-Gray) ── */
+.theme-gaming {
   --bg-main: #111827;
   --bg-secondary: #1f2937;
   --bg-card: #1f2937;
@@ -50,7 +93,7 @@
   --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
-/* Light — Clean White */
+/* ── LIGHT (Clean White) ── */
 .theme-light {
   --bg-main: #f9fafb;
   --bg-secondary: #ffffff;
@@ -93,7 +136,7 @@
   --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
-/* Midnight — Deep Blue-Black */
+/* ── MIDNIGHT (Deep Blue-Black) ── */
 .theme-midnight {
   --bg-main: #0a0a1a;
   --bg-secondary: #12122a;
@@ -137,7 +180,7 @@
 }
 
 /* ================================================
-   GLOBAL OVERRIDES FOR DARK THEMES
+   GLOBAL — BODY
    ================================================ */
 
 body {
@@ -146,23 +189,48 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Fix ALL page wrappers (login, landing, onboarding) */
+.theme-dark .min-h-screen,
+.theme-gaming .min-h-screen,
+.theme-midnight .min-h-screen {
+  background-color: var(--bg-main) !important;
+}
+
+/* ================================================
+   DARK + GAMING + MIDNIGHT OVERRIDES
+   ================================================ */
+
 .theme-dark .bg-white,
+.theme-gaming .bg-white,
 .theme-midnight .bg-white {
   background-color: var(--bg-card) !important;
 }
 
 .theme-dark .bg-gray-50,
+.theme-gaming .bg-gray-50,
 .theme-midnight .bg-gray-50 {
   background-color: var(--bg-main) !important;
 }
 
 .theme-dark .bg-gray-100,
+.theme-gaming .bg-gray-100,
 .theme-midnight .bg-gray-100 {
+  background-color: var(--bg-secondary) !important;
+}
+
+.theme-dark .bg-slate-50,
+.theme-dark .bg-slate-100,
+.theme-gaming .bg-slate-50,
+.theme-gaming .bg-slate-100,
+.theme-midnight .bg-slate-50,
+.theme-midnight .bg-slate-100 {
   background-color: var(--bg-secondary) !important;
 }
 
 .theme-dark .border-gray-100,
 .theme-dark .border-gray-200,
+.theme-gaming .border-gray-100,
+.theme-gaming .border-gray-200,
 .theme-midnight .border-gray-100,
 .theme-midnight .border-gray-200 {
   border-color: var(--border-color) !important;
@@ -170,6 +238,8 @@ body {
 
 .theme-dark .text-gray-900,
 .theme-dark .text-gray-800,
+.theme-gaming .text-gray-900,
+.theme-gaming .text-gray-800,
 .theme-midnight .text-gray-900,
 .theme-midnight .text-gray-800 {
   color: var(--text-primary) !important;
@@ -177,6 +247,8 @@ body {
 
 .theme-dark .text-gray-700,
 .theme-dark .text-gray-600,
+.theme-gaming .text-gray-700,
+.theme-gaming .text-gray-600,
 .theme-midnight .text-gray-700,
 .theme-midnight .text-gray-600 {
   color: var(--text-secondary) !important;
@@ -184,6 +256,8 @@ body {
 
 .theme-dark .text-gray-500,
 .theme-dark .text-gray-400,
+.theme-gaming .text-gray-500,
+.theme-gaming .text-gray-400,
 .theme-midnight .text-gray-500,
 .theme-midnight .text-gray-400 {
   color: var(--text-muted) !important;
@@ -192,6 +266,9 @@ body {
 .theme-dark input:not([type="checkbox"]):not([type="radio"]),
 .theme-dark textarea,
 .theme-dark select,
+.theme-gaming input:not([type="checkbox"]):not([type="radio"]),
+.theme-gaming textarea,
+.theme-gaming select,
 .theme-midnight input:not([type="checkbox"]):not([type="radio"]),
 .theme-midnight textarea,
 .theme-midnight select {

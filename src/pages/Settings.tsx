@@ -181,7 +181,7 @@ export default function Settings() {
                   <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Active</span>
                 </div>
                 <p className="text-sm text-gray-600 mb-4">
-                  Upgrade to Pro or Business to unlock advanced features including AI risk prediction, multi-branch management, and priority support.
+                  Upgrade to Pro or Business to unlock advanced AI features, multi-branch management, and priority support.
                 </p>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold">
                   Upgrade Plan
@@ -210,9 +210,9 @@ export default function Settings() {
                   Choose how UKHurairaOps looks on your device. Your preference is saved automatically.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-                  {/* Dark */}
+                  {/* ── Dark (Replit-style) ── */}
                   <button
                     onClick={() => setTheme('dark')}
                     className={`relative rounded-xl p-4 border-2 text-left transition-all ${
@@ -220,21 +220,21 @@ export default function Settings() {
                         ? 'border-emerald-500 ring-2 ring-emerald-500/20'
                         : 'border-gray-600 hover:border-gray-400'
                     }`}
-                    style={{ backgroundColor: '#1f2937' }}
+                    style={{ backgroundColor: '#2a2a2a' }}
                   >
-                    <div className="w-full h-20 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#111827' }}>
-                      <div className="h-3 w-3/4 rounded mt-3 ml-3" style={{ backgroundColor: '#374151' }}></div>
-                      <div className="h-2 w-1/2 rounded mt-2 ml-3" style={{ backgroundColor: '#4B5563' }}></div>
-                      <div className="h-2 w-2/3 rounded mt-2 ml-3" style={{ backgroundColor: '#4B5563' }}></div>
+                    <div className="w-full h-16 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#1a1a1a' }}>
+                      <div className="h-2 w-3/4 rounded mt-2 ml-2" style={{ backgroundColor: '#333333' }}></div>
+                      <div className="h-2 w-1/2 rounded mt-2 ml-2" style={{ backgroundColor: '#3a3a3a' }}></div>
+                      <div className="h-2 w-2/3 rounded mt-2 ml-2" style={{ backgroundColor: '#3a3a3a' }}></div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="font-semibold text-sm text-white">Dark</p>
-                        <p className="text-xs text-gray-400">Easy on the eyes</p>
+                        <p className="font-semibold text-xs text-white">Dark</p>
+                        <p className="text-xs text-gray-400" style={{ fontSize: '10px' }}>Clean & minimal</p>
                       </div>
                       {theme === 'dark' && (
-                        <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
@@ -242,7 +242,7 @@ export default function Settings() {
                     </div>
                   </button>
 
-                  {/* Light */}
+                  {/* ── Light ── */}
                   <button
                     onClick={() => setTheme('light')}
                     className={`relative rounded-xl p-4 border-2 text-left transition-all ${
@@ -252,19 +252,19 @@ export default function Settings() {
                     }`}
                     style={{ backgroundColor: '#ffffff' }}
                   >
-                    <div className="w-full h-20 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#f9fafb' }}>
-                      <div className="h-3 w-3/4 rounded mt-3 ml-3" style={{ backgroundColor: '#e5e7eb' }}></div>
-                      <div className="h-2 w-1/2 rounded mt-2 ml-3" style={{ backgroundColor: '#d1d5db' }}></div>
-                      <div className="h-2 w-2/3 rounded mt-2 ml-3" style={{ backgroundColor: '#d1d5db' }}></div>
+                    <div className="w-full h-16 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#f9fafb' }}>
+                      <div className="h-2 w-3/4 rounded mt-2 ml-2" style={{ backgroundColor: '#e5e7eb' }}></div>
+                      <div className="h-2 w-1/2 rounded mt-2 ml-2" style={{ backgroundColor: '#d1d5db' }}></div>
+                      <div className="h-2 w-2/3 rounded mt-2 ml-2" style={{ backgroundColor: '#d1d5db' }}></div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="font-semibold text-sm text-gray-900">Light</p>
-                        <p className="text-xs text-gray-500">Classic white</p>
+                        <p className="font-semibold text-xs text-gray-900">Light</p>
+                        <p className="text-xs text-gray-500" style={{ fontSize: '10px' }}>Classic white</p>
                       </div>
                       {theme === 'light' && (
-                        <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
@@ -272,7 +272,7 @@ export default function Settings() {
                     </div>
                   </button>
 
-                  {/* Midnight */}
+                  {/* ── Midnight ── */}
                   <button
                     onClick={() => setTheme('midnight')}
                     className={`relative rounded-xl p-4 border-2 text-left transition-all ${
@@ -282,19 +282,49 @@ export default function Settings() {
                     }`}
                     style={{ backgroundColor: '#16163a' }}
                   >
-                    <div className="w-full h-20 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#0a0a1a' }}>
-                      <div className="h-3 w-3/4 rounded mt-3 ml-3" style={{ backgroundColor: '#2a2a5a' }}></div>
-                      <div className="h-2 w-1/2 rounded mt-2 ml-3" style={{ backgroundColor: '#1e1e4a' }}></div>
-                      <div className="h-2 w-2/3 rounded mt-2 ml-3" style={{ backgroundColor: '#1e1e4a' }}></div>
+                    <div className="w-full h-16 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#0a0a1a' }}>
+                      <div className="h-2 w-3/4 rounded mt-2 ml-2" style={{ backgroundColor: '#2a2a5a' }}></div>
+                      <div className="h-2 w-1/2 rounded mt-2 ml-2" style={{ backgroundColor: '#1e1e4a' }}></div>
+                      <div className="h-2 w-2/3 rounded mt-2 ml-2" style={{ backgroundColor: '#1e1e4a' }}></div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="font-semibold text-sm text-blue-100">Midnight</p>
-                        <p className="text-xs text-blue-300/60">Deep blue-black</p>
+                        <p className="font-semibold text-xs text-blue-100">Midnight</p>
+                        <p className="text-xs text-blue-300/60" style={{ fontSize: '10px' }}>Deep blue</p>
                       </div>
                       {theme === 'midnight' && (
-                        <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                  </button>
+
+                  {/* ── Gaming ── */}
+                  <button
+                    onClick={() => setTheme('gaming')}
+                    className={`relative rounded-xl p-4 border-2 text-left transition-all ${
+                      theme === 'gaming'
+                        ? 'border-emerald-500 ring-2 ring-emerald-500/20'
+                        : 'border-gray-600 hover:border-gray-400'
+                    }`}
+                    style={{ backgroundColor: '#1f2937' }}
+                  >
+                    <div className="w-full h-16 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#111827' }}>
+                      <div className="h-2 w-3/4 rounded mt-2 ml-2" style={{ backgroundColor: '#374151' }}></div>
+                      <div className="h-2 w-1/2 rounded mt-2 ml-2" style={{ backgroundColor: '#4B5563' }}></div>
+                      <div className="h-2 w-2/3 rounded mt-2 ml-2" style={{ backgroundColor: '#4B5563' }}></div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-semibold text-xs text-white">Gaming</p>
+                        <p className="text-xs text-gray-400" style={{ fontSize: '10px' }}>Blue-gray style</p>
+                      </div>
+                      {theme === 'gaming' && (
+                        <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
