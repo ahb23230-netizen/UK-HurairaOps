@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useTheme, Theme } from '../contexts/ThemeContext';
-
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function Settings() {
   const { user } = useAuth();
@@ -28,12 +27,12 @@ export default function Settings() {
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100">
         {/* Tabs */}
         <div className="border-b border-gray-200">
-          <nav className="flex -mb-px">
-                      {['profile', 'notifications', 'security', 'billing', 'appearance'].map((tab) => (
+          <nav className="flex -mb-px overflow-x-auto">
+            {['profile', 'notifications', 'security', 'billing', 'appearance'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-4 text-sm font-medium border-b-2 ${
+                className={`px-6 py-4 text-sm font-medium border-b-2 whitespace-nowrap ${
                   activeTab === tab
                     ? 'border-blue-600 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -47,6 +46,8 @@ export default function Settings() {
 
         {/* Content */}
         <div className="p-8">
+
+          {/* ── PROFILE ── */}
           {activeTab === 'profile' && (
             <div className="space-y-6">
               <div>
@@ -57,7 +58,7 @@ export default function Settings() {
                     <input
                       type="text"
                       value={profileData.fullName}
-                      onChange={(e) => setProfileData({...profileData, fullName: e.target.value})}
+                      onChange={(e) => setProfileData({ ...profileData, fullName: e.target.value })}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
@@ -66,7 +67,7 @@ export default function Settings() {
                     <input
                       type="email"
                       value={profileData.email}
-                      onChange={(e) => setProfileData({...profileData, email: e.target.value})}
+                      onChange={(e) => setProfileData({ ...profileData, email: e.target.value })}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       disabled
                     />
@@ -76,7 +77,7 @@ export default function Settings() {
                     <input
                       type="tel"
                       value={profileData.phone}
-                      onChange={(e) => setProfileData({...profileData, phone: e.target.value})}
+                      onChange={(e) => setProfileData({ ...profileData, phone: e.target.value })}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
@@ -85,7 +86,7 @@ export default function Settings() {
                     <input
                       type="text"
                       value={profileData.company}
-                      onChange={(e) => setProfileData({...profileData, company: e.target.value})}
+                      onChange={(e) => setProfileData({ ...profileData, company: e.target.value })}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
@@ -97,6 +98,7 @@ export default function Settings() {
             </div>
           )}
 
+          {/* ── NOTIFICATIONS ── */}
           {activeTab === 'notifications' && (
             <div className="space-y-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Notification Preferences</h3>
@@ -116,7 +118,7 @@ export default function Settings() {
                       <input
                         type="checkbox"
                         checked={notifications[item.key as keyof typeof notifications]}
-                        onChange={(e) => setNotifications({...notifications, [item.key]: e.target.checked})}
+                        onChange={(e) => setNotifications({ ...notifications, [item.key]: e.target.checked })}
                         className="sr-only peer"
                       />
                       <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-100 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -130,6 +132,7 @@ export default function Settings() {
             </div>
           )}
 
+          {/* ── SECURITY ── */}
           {activeTab === 'security' && (
             <div className="space-y-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Security Settings</h3>
@@ -165,8 +168,39 @@ export default function Settings() {
             </div>
           )}
 
+          {/* ── BILLING ── */}
           {activeTab === 'billing' && (
-                      {activeTab === 'appearance' && (
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Billing & Subscription</h3>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <p className="font-semibold text-gray-900 text-lg">Starter Plan</p>
+                    <p className="text-gray-600 text-sm">Free — Demo Mode</p>
+                  </div>
+                  <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Active</span>
+                </div>
+                <p className="text-sm text-gray-600 mb-4">
+                  Upgrade to Pro or Business to unlock advanced features including AI risk prediction, multi-branch management, and priority support.
+                </p>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold">
+                  Upgrade Plan
+                </button>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-xl">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="font-medium text-gray-900">Payment Method</p>
+                    <p className="text-sm text-gray-500">No payment method added</p>
+                  </div>
+                  <button className="text-blue-600 hover:text-blue-700 font-medium">Add Card</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ── APPEARANCE ── */}
+          {activeTab === 'appearance' && (
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
@@ -177,7 +211,8 @@ export default function Settings() {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {/* Dark Theme */}
+
+                  {/* Dark */}
                   <button
                     onClick={() => setTheme('dark')}
                     className={`relative rounded-xl p-4 border-2 text-left transition-all ${
@@ -207,7 +242,7 @@ export default function Settings() {
                     </div>
                   </button>
 
-                  {/* Light Theme */}
+                  {/* Light */}
                   <button
                     onClick={() => setTheme('light')}
                     className={`relative rounded-xl p-4 border-2 text-left transition-all ${
@@ -237,7 +272,7 @@ export default function Settings() {
                     </div>
                   </button>
 
-                  {/* Midnight Theme */}
+                  {/* Midnight */}
                   <button
                     onClick={() => setTheme('midnight')}
                     className={`relative rounded-xl p-4 border-2 text-left transition-all ${
@@ -266,38 +301,12 @@ export default function Settings() {
                       )}
                     </div>
                   </button>
+
                 </div>
               </div>
             </div>
           )}
-            <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Billing & Subscription</h3>
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <span className="px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium">Beta Access</span>
-                    <p className="text-2xl font-bold text-gray-900 mt-4">Free</p>
-                    <p className="text-sm text-gray-500">Currently in beta</p>
-                  </div>
-                  <button className="text-blue-600 hover:text-blue-700 font-medium">Upgrade</button>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <button className="w-full text-left p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium text-gray-900">View Invoices</span>
-                    <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                  </div>
-                </button>
-                <button className="w-full text-left p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                  <div className="flex justify-between items-center">
-                    <span className="font-medium text-gray-900">Cancel Subscription</span>
-                    <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                  </div>
-                </button>
-              </div>
-            </div>
-          )}
+
         </div>
       </div>
     </>
