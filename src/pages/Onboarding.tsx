@@ -82,7 +82,16 @@ export default function Onboarding() {
   return (
     <>
       <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-main)' }}>
-       
+               {/* Header */}
+        <div className="max-w-3xl mx-auto px-4 pt-6 pb-2">
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="UKHurairaOps Logo" className="w-12 h-12 object-contain" />
+            <div>
+              <h1 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>UKHurairaOps</h1>
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Welcome! Let's set up your business</p>
+            </div>
+          </div>
+        </div>
 
       {/* Progress Steps */}
       <div className="max-w-3xl mx-auto px-4 py-6">
