@@ -280,3 +280,28 @@ body {
 img {
   object-position: top;
 }
+/* Fix gradient backgrounds on public pages */
+.theme-dark .from-blue-50,
+.theme-gaming .from-blue-50,
+.theme-midnight .from-blue-50 {
+  --tw-gradient-from: var(--bg-secondary) !important;
+}
+
+.theme-dark .to-white,
+.theme-dark .to-gray-100,
+.theme-gaming .to-white,
+.theme-gaming .to-gray-100,
+.theme-midnight .to-white,
+.theme-midnight .to-gray-100 {
+  --tw-gradient-to: var(--bg-main) !important;
+}
+
+/* Fix Onboarding white card wrapper */
+.theme-dark .rounded-3xl,
+.theme-dark .rounded-2xl.shadow-xl,
+.theme-gaming .rounded-3xl,
+.theme-gaming .rounded-2xl.shadow-xl,
+.theme-midnight .rounded-3xl,
+.theme-midnight .rounded-2xl.shadow-xl {
+  background-color: var(--bg-card) !important;
+}

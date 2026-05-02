@@ -28,7 +28,7 @@ export default function Login() {
 
   return (
     <>
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8" style={{ backgroundColor: 'var(--bg-main)' }}>
       <div className="max-w-md w-full">
         <div className="text-center mb-4">
           <h1 className="text-2xl font-bold text-gray-900 mb-1">Welcome Back</h1>
