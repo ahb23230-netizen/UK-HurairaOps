@@ -81,9 +81,9 @@ export default function Onboarding() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+      <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-main)' }}>
         {/* Header */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="border-b" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}>
           <div className="max-w-3xl mx-auto px-4 py-6">
             <div className="flex items-center gap-3">
               <img src="/logo.png" alt="UKHurairaOps Logo" className="w-16 h-16 object-contain" />

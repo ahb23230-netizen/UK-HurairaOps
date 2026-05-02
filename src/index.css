@@ -305,3 +305,82 @@ img {
 .theme-midnight .rounded-2xl.shadow-xl {
   background-color: var(--bg-card) !important;
 }
+/* ── FIX PASTEL CARD BACKGROUNDS ── */
+.theme-dark .bg-indigo-50,
+.theme-dark .bg-emerald-50,
+.theme-dark .bg-violet-50,
+.theme-dark .bg-rose-50,
+.theme-dark .bg-blue-50,
+.theme-dark .bg-amber-50,
+.theme-dark .bg-teal-50,
+.theme-dark .bg-orange-50,
+.theme-dark .bg-pink-50,
+.theme-dark .bg-purple-50,
+.theme-dark .bg-green-50,
+.theme-dark .bg-cyan-50,
+.theme-dark .bg-yellow-50,
+.theme-gaming .bg-indigo-50,
+.theme-gaming .bg-emerald-50,
+.theme-gaming .bg-violet-50,
+.theme-gaming .bg-rose-50,
+.theme-gaming .bg-blue-50,
+.theme-gaming .bg-amber-50,
+.theme-gaming .bg-teal-50,
+.theme-gaming .bg-orange-50,
+.theme-gaming .bg-pink-50,
+.theme-gaming .bg-purple-50,
+.theme-gaming .bg-green-50,
+.theme-gaming .bg-cyan-50,
+.theme-gaming .bg-yellow-50,
+.theme-midnight .bg-indigo-50,
+.theme-midnight .bg-emerald-50,
+.theme-midnight .bg-violet-50,
+.theme-midnight .bg-rose-50,
+.theme-midnight .bg-blue-50,
+.theme-midnight .bg-amber-50,
+.theme-midnight .bg-teal-50,
+.theme-midnight .bg-orange-50,
+.theme-midnight .bg-pink-50,
+.theme-midnight .bg-purple-50,
+.theme-midnight .bg-green-50,
+.theme-midnight .bg-cyan-50,
+.theme-midnight .bg-yellow-50 {
+  background-color: var(--bg-hover) !important;
+}
+
+/* Fix hover states for pastel cards */
+.theme-dark .hover\:bg-indigo-100:hover,
+.theme-dark .hover\:bg-emerald-100:hover,
+.theme-dark .hover\:bg-violet-100:hover,
+.theme-dark .hover\:bg-rose-100:hover,
+.theme-dark .hover\:bg-blue-100:hover,
+.theme-dark .hover\:bg-amber-100:hover,
+.theme-gaming .hover\:bg-indigo-100:hover,
+.theme-gaming .hover\:bg-emerald-100:hover,
+.theme-gaming .hover\:bg-violet-100:hover,
+.theme-gaming .hover\:bg-rose-100:hover,
+.theme-gaming .hover\:bg-blue-100:hover,
+.theme-gaming .hover\:bg-amber-100:hover,
+.theme-midnight .hover\:bg-indigo-100:hover,
+.theme-midnight .hover\:bg-emerald-100:hover,
+.theme-midnight .hover\:bg-violet-100:hover,
+.theme-midnight .hover\:bg-rose-100:hover,
+.theme-midnight .hover\:bg-blue-100:hover,
+.theme-midnight .hover\:bg-amber-100:hover {
+  background-color: var(--border-color) !important;
+}
+
+/* ── FIX ONBOARDING WHITE BACKGROUNDS ── */
+.theme-dark .from-slate-50,
+.theme-dark .via-white,
+.theme-dark .to-slate-100,
+.theme-gaming .from-slate-50,
+.theme-gaming .via-white,
+.theme-gaming .to-slate-100,
+.theme-midnight .from-slate-50,
+.theme-midnight .via-white,
+.theme-midnight .to-slate-100 {
+  --tw-gradient-from: var(--bg-main) !important;
+  --tw-gradient-via: var(--bg-secondary) !important;
+  --tw-gradient-to: var(--bg-main) !important;
+}
