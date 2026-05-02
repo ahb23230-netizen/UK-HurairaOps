@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { SubscriptionProvider } from './contexts/SubscriptionContext';
 import AppLayout from './components/AppLayout';
@@ -229,13 +231,15 @@ function AppRoutes() {
 }
 
 function App() {
-  return (
+    return (
     <BrowserRouter>
-      <AuthProvider>
-        <SubscriptionProvider>
-          <AppRoutes />
-        </SubscriptionProvider>
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <SubscriptionProvider>
+            <AppRoutes />
+          </SubscriptionProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

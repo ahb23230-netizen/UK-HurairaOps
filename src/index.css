@@ -2,37 +2,204 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%
-  }
+/* ================================================
+   THEME VARIABLES
+   ================================================ */
 
-  .dark {
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%
-  }
+/* Dark (Dim) — Default — like Replit */
+:root,
+.theme-dark {
+  --bg-main: #111827;
+  --bg-secondary: #1f2937;
+  --bg-card: #1f2937;
+  --bg-hover: #374151;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --input-bg: #374151;
+
+  --background: 220 17% 10%;
+  --foreground: 220 14% 96%;
+  --card: 220 17% 13%;
+  --card-foreground: 220 14% 96%;
+  --popover: 220 17% 13%;
+  --popover-foreground: 220 14% 96%;
+  --primary: 142 40% 26%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 220 17% 18%;
+  --secondary-foreground: 220 14% 96%;
+  --muted: 220 17% 18%;
+  --muted-foreground: 220 10% 60%;
+  --accent: 220 17% 20%;
+  --accent-foreground: 220 14% 96%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 17% 20%;
+  --input: 220 17% 20%;
+  --ring: 142 40% 26%;
+  --radius: 0.5rem;
+
+  --sidebar-background: 240 5.9% 10%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
+/* Light — Clean White */
+.theme-light {
+  --bg-main: #f9fafb;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+  --input-bg: #ffffff;
 
+  --background: 0 0% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 142 40% 26%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 220 14% 96%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 142 40% 26%;
+  --radius: 0.5rem;
+
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+/* Midnight — Deep Blue-Black */
+.theme-midnight {
+  --bg-main: #0a0a1a;
+  --bg-secondary: #12122a;
+  --bg-card: #16163a;
+  --bg-hover: #1e1e4a;
+  --text-primary: #e2e8f0;
+  --text-secondary: #b8c4d4;
+  --text-muted: #8896ac;
+  --border-color: #2a2a5a;
+  --input-bg: #1e1e4a;
+
+  --background: 240 40% 7%;
+  --foreground: 220 20% 90%;
+  --card: 240 40% 10%;
+  --card-foreground: 220 20% 90%;
+  --popover: 240 40% 10%;
+  --popover-foreground: 220 20% 90%;
+  --primary: 142 40% 26%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 30% 16%;
+  --secondary-foreground: 220 20% 90%;
+  --muted: 240 30% 16%;
+  --muted-foreground: 220 10% 55%;
+  --accent: 240 30% 18%;
+  --accent-foreground: 220 20% 90%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 30% 20%;
+  --input: 240 30% 20%;
+  --ring: 142 40% 26%;
+  --radius: 0.5rem;
+
+  --sidebar-background: 240 40% 8%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+/* ================================================
+   GLOBAL OVERRIDES FOR DARK THEMES
+   ================================================ */
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-dark .bg-white,
+.theme-midnight .bg-white {
+  background-color: var(--bg-card) !important;
+}
+
+.theme-dark .bg-gray-50,
+.theme-midnight .bg-gray-50 {
+  background-color: var(--bg-main) !important;
+}
+
+.theme-dark .bg-gray-100,
+.theme-midnight .bg-gray-100 {
+  background-color: var(--bg-secondary) !important;
+}
+
+.theme-dark .border-gray-100,
+.theme-dark .border-gray-200,
+.theme-midnight .border-gray-100,
+.theme-midnight .border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+.theme-dark .text-gray-900,
+.theme-dark .text-gray-800,
+.theme-midnight .text-gray-900,
+.theme-midnight .text-gray-800 {
+  color: var(--text-primary) !important;
+}
+
+.theme-dark .text-gray-700,
+.theme-dark .text-gray-600,
+.theme-midnight .text-gray-700,
+.theme-midnight .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.theme-dark .text-gray-500,
+.theme-dark .text-gray-400,
+.theme-midnight .text-gray-500,
+.theme-midnight .text-gray-400 {
+  color: var(--text-muted) !important;
+}
+
+.theme-dark input:not([type="checkbox"]):not([type="radio"]),
+.theme-dark textarea,
+.theme-dark select,
+.theme-midnight input:not([type="checkbox"]):not([type="radio"]),
+.theme-midnight textarea,
+.theme-midnight select {
+  background-color: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
 
 img {
   object-position: top;
-}
-
-.fixed {
-  position: fixed;
 }

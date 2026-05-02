@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme, Theme } from '../contexts/ThemeContext';
 
 
 export default function Settings() {
   const { user } = useAuth();
+  const { theme, setTheme } = useTheme();
   const [activeTab, setActiveTab] = useState('profile');
 
   const [profileData, setProfileData] = useState({
@@ -27,7 +29,7 @@ export default function Settings() {
         {/* Tabs */}
         <div className="border-b border-gray-200">
           <nav className="flex -mb-px">
-            {['profile', 'notifications', 'security', 'billing'].map((tab) => (
+                      {['profile', 'notifications', 'security', 'billing', 'appearance'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -164,6 +166,110 @@ export default function Settings() {
           )}
 
           {activeTab === 'billing' && (
+                      {activeTab === 'appearance' && (
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
+                  Appearance
+                </h3>
+                <p className="text-sm mb-6" style={{ color: 'var(--text-muted)' }}>
+                  Choose how UKHurairaOps looks on your device. Your preference is saved automatically.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* Dark Theme */}
+                  <button
+                    onClick={() => setTheme('dark')}
+                    className={`relative rounded-xl p-4 border-2 text-left transition-all ${
+                      theme === 'dark'
+                        ? 'border-emerald-500 ring-2 ring-emerald-500/20'
+                        : 'border-gray-600 hover:border-gray-400'
+                    }`}
+                    style={{ backgroundColor: '#1f2937' }}
+                  >
+                    <div className="w-full h-20 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#111827' }}>
+                      <div className="h-3 w-3/4 rounded mt-3 ml-3" style={{ backgroundColor: '#374151' }}></div>
+                      <div className="h-2 w-1/2 rounded mt-2 ml-3" style={{ backgroundColor: '#4B5563' }}></div>
+                      <div className="h-2 w-2/3 rounded mt-2 ml-3" style={{ backgroundColor: '#4B5563' }}></div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-semibold text-sm text-white">Dark</p>
+                        <p className="text-xs text-gray-400">Easy on the eyes</p>
+                      </div>
+                      {theme === 'dark' && (
+                        <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                  </button>
+
+                  {/* Light Theme */}
+                  <button
+                    onClick={() => setTheme('light')}
+                    className={`relative rounded-xl p-4 border-2 text-left transition-all ${
+                      theme === 'light'
+                        ? 'border-emerald-500 ring-2 ring-emerald-500/20'
+                        : 'border-gray-200 hover:border-gray-400'
+                    }`}
+                    style={{ backgroundColor: '#ffffff' }}
+                  >
+                    <div className="w-full h-20 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#f9fafb' }}>
+                      <div className="h-3 w-3/4 rounded mt-3 ml-3" style={{ backgroundColor: '#e5e7eb' }}></div>
+                      <div className="h-2 w-1/2 rounded mt-2 ml-3" style={{ backgroundColor: '#d1d5db' }}></div>
+                      <div className="h-2 w-2/3 rounded mt-2 ml-3" style={{ backgroundColor: '#d1d5db' }}></div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-semibold text-sm text-gray-900">Light</p>
+                        <p className="text-xs text-gray-500">Classic white</p>
+                      </div>
+                      {theme === 'light' && (
+                        <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                  </button>
+
+                  {/* Midnight Theme */}
+                  <button
+                    onClick={() => setTheme('midnight')}
+                    className={`relative rounded-xl p-4 border-2 text-left transition-all ${
+                      theme === 'midnight'
+                        ? 'border-emerald-500 ring-2 ring-emerald-500/20'
+                        : 'border-gray-700 hover:border-gray-500'
+                    }`}
+                    style={{ backgroundColor: '#16163a' }}
+                  >
+                    <div className="w-full h-20 rounded-lg mb-3 overflow-hidden" style={{ backgroundColor: '#0a0a1a' }}>
+                      <div className="h-3 w-3/4 rounded mt-3 ml-3" style={{ backgroundColor: '#2a2a5a' }}></div>
+                      <div className="h-2 w-1/2 rounded mt-2 ml-3" style={{ backgroundColor: '#1e1e4a' }}></div>
+                      <div className="h-2 w-2/3 rounded mt-2 ml-3" style={{ backgroundColor: '#1e1e4a' }}></div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-semibold text-sm text-blue-100">Midnight</p>
+                        <p className="text-xs text-blue-300/60">Deep blue-black</p>
+                      </div>
+                      {theme === 'midnight' && (
+                        <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
             <div className="space-y-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Billing & Subscription</h3>
               <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl">
