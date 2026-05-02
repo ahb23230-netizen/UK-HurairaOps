@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { ChefHat } from 'lucide-react';
 import { useSubscription } from '../contexts/SubscriptionContext';
 // Simple markdown parser
 const parseMarkdown = (text: string): string => {
@@ -285,7 +286,7 @@ export default function EHOInspectorBot() {
             <div className="relative">
               <img src="/eho-bot-logo.png" alt="Chef Huraira" className="w-20 h-20 rounded-full object-contain border-3 border-emerald-400 shadow-lg" />
               <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-emerald-400 rounded-full flex items-center justify-center">
-                <span className="text-xs">🧑‍�</span>
+                <ChefHat className="w-3 h-3 text-emerald-900" />
               </div>
             </div>
             <div>
