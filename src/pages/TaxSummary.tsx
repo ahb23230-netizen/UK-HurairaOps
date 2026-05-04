@@ -280,6 +280,7 @@ export default function TaxSummary() {
             </tr>
           </tfoot>
         </table>
+            </div>
       </div>
 
       {/* Export Modal */}
