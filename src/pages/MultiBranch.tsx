@@ -142,7 +142,7 @@ export default function MultiBranch() {
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
             </svg>
-            <span className="text-sm font-medium opacity-90">أفضل فرع</span>
+            <span className="text-sm font-medium opacity-90">Top Performing Branch</span>
           </div>
           <h3 className="text-2xl font-bold mb-1">{bestBranch.name.split(' - ')[0]}</h3>
           <p className="text-sm opacity-80 mb-3">{bestBranch.location}</p>
@@ -156,7 +156,7 @@ export default function MultiBranch() {
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
-            <span className="text-sm font-medium opacity-90">أسوأ فرع</span>
+            <span className="text-sm font-medium opacity-90">Underperforming Branch</span>
           </div>
           <h3 className="text-2xl font-bold mb-1">{worstBranch.name.split(' - ')[0]}</h3>
           <p className="text-sm opacity-80 mb-3">{worstBranch.location}</p>
@@ -172,7 +172,7 @@ export default function MultiBranch() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-500">إجمالي الفروع</span>
+            <span className="text-sm font-medium text-gray-500">Total Branches</span>
           </div>
           <div className="text-4xl font-bold text-gray-900">{branches.length}</div>
           <p className="text-sm text-gray-500 mt-1">Active Branches</p>
@@ -186,7 +186,7 @@ export default function MultiBranch() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-500">متوسط الالتزام</span>
+            <span className="text-sm font-medium text-gray-500">Avg.Compliance</span>
           </div>
           <div className={`text-4xl font-bold ${getComplianceColor(avgComplianceRate)}`}>
             {avgComplianceRate.toFixed(1)}%
@@ -197,7 +197,7 @@ export default function MultiBranch() {
 
       {/* Performance Comparison Chart */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
-        <h3 className="text-lg font-semibold text-gray-900 mb-6">مقارنة الأداء بين الفروع</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-6">Branch Performance Comparison</h3>
         <div className="space-y-4">
           {sortedByCompliance.map((branch, index) => (
             <div key={branch.id} className="relative">
@@ -280,19 +280,19 @@ export default function MultiBranch() {
           </div>
           <div className="space-y-3">
             {sortedByCompliance.slice(-2).reverse().map((branch, index) => (
-              <div key={branch.id} className="flex items-center justify-between p-3 bg-red-50 rounded-xl">
+                            <div key={branch.id} className="flex items-center justify-between p-3 rounded-xl" style={{ backgroundColor: '#1c0f0f' }}>
                 <div className="flex items-center gap-3">
-                  <span className="w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                  <span className="w-6 h-6 bg-red-700 text-white rounded-full flex items-center justify-center text-xs font-bold">
                     {branches.length - 1 + index - 1}
                   </span>
                   <div>
-                    <p className="font-medium text-gray-900">{branch.name.split(' - ')[0]}</p>
-                    <p className="text-xs text-gray-500">{branch.failedChecks} failed checks</p>
+                    <p className="font-medium text-white">{branch.name.split(' - ')[0]}</p>
+                    <p className="text-xs text-red-300">{branch.failedChecks} failed checks</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <span className="text-red-600 font-bold">{branch.complianceRate}%</span>
-                  <p className="text-xs text-gray-500">{branch.avgResponseTime}h avg response</p>
+                  <span className="text-red-400 font-bold">{branch.complianceRate}%</span>
+                  <p className="text-xs text-red-300">{branch.avgResponseTime}h avg response</p>
                 </div>
               </div>
             ))}
