@@ -36,7 +36,7 @@ export default function AIActionEngine() {
   const appliedCount = actions.filter(a => a.applied).length;
 
   const getPriorityStyle = (priority: string) => {
-    if (priority === 'critical') return { bg: '#3a0f0f', border: '#7f1d1d', badge: '#ef4444', badgeText: 'CRITICAL' };
+    if (priority === 'critical') return { bg: '#1c0f0f', border: '#4a1a1a', badge: '#b91c1c', badgeText: 'CRITICAL' };
     if (priority === 'high') return { bg: '#2a1f0a', border: '#78350f', badge: '#f59e0b', badgeText: 'HIGH' };
     return { bg: '#0f1f2a', border: '#1e3a5f', badge: '#3b82f6', badgeText: 'MEDIUM' };
   };
