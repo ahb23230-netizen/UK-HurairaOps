@@ -193,7 +193,7 @@ export default function AIRiskPredictor() {
   return (
     <>
       {/* Overall Risk Assessment Banner */}
-      <div className={`mb-8 rounded-2xl p-6 ${prediction.priority === 'critical' ? 'bg-gradient-to-r from-red-500 to-orange-500' : prediction.priority === 'warning' ? 'bg-gradient-to-r from-yellow-500 to-orange-500' : 'bg-gradient-to-r from-green-500 to-emerald-500'} text-white`}>
+             <div className={`mb-8 rounded-2xl p-6 ${prediction.priority === 'critical' ? 'bg-gradient-to-r from-red-800 to-orange-800' : prediction.priority === 'warning' ? 'bg-gradient-to-r from-yellow-800 to-amber-900' : 'bg-gradient-to-r from-green-800 to-emerald-900'} text-white`}>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6">
             <div className="relative w-24 h-24">
@@ -228,23 +228,23 @@ export default function AIRiskPredictor() {
 
       {/* Critical Issues Alert */}
       {criticalIssues.length > 0 && (
-        <div className="mb-8 bg-red-50 border border-red-200 rounded-2xl p-6">
-          <div className="flex items-start gap-4">
+            <div className="mb-8 rounded-2xl p-6 border border-red-900/40" style={{ backgroundColor: '#1c0f0f' }}>      
+<div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
               <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-red-800 mb-2">Critical Risk Factors Requiring Immediate Attention</h3>
+              <h3 className="text-lg font-bold text-red-400 mb-2">Critical Risk Factors Requiring Immediate Attention</h3>
               <div className="space-y-3">
                 {criticalIssues.map((issue) => (
-                  <div key={issue.id} className="flex items-center justify-between bg-white rounded-lg p-3">
+                                    <div key={issue.id} className="flex items-center justify-between rounded-lg p-3" style={{ backgroundColor: 'var(--bg-secondary)' }}>
                     <div>
                       <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(issue.status)}`}>
                         {issue.status.toUpperCase()}
                       </span>
-                      <span className="ml-2 font-medium text-gray-900">{issue.name}</span>
+                      <span className="ml-2 font-medium" style={{ color: 'var(--text-primary)' }}>{issue.name}</span>
                     </div>
                     <span className={`text-sm font-semibold ${getTrendColor(issue.trend)}`}>
                       {getTrendIcon(issue.trend)} {issue.score}%
