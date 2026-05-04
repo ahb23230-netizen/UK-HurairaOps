@@ -41,6 +41,7 @@ import RatingBooster from './pages/RatingBooster';
 import TrustBadge from './pages/TrustBadge';
 import CompetitorBenchmarking from './pages/CompetitorBenchmarking';
 import ReviewIntelligence from './pages/ReviewIntelligence';
+import AIActionEngine from './pages/AIActionEngine';
 
 // Page wrapper to remove Layout import from individual pages
 function PageWrapper({ children }: { children: React.ReactNode }) {
@@ -223,6 +224,11 @@ function AppRoutes() {
       <Route path="/review-intelligence" element={
         <ProtectedRoute>
           <ReviewIntelligence />
+        </ProtectedRoute>
+      } />
+            <Route path="/ai-action-engine" element={
+        <ProtectedRoute>
+          <AIActionEngine />
         </ProtectedRoute>
       } />
     </Routes>
