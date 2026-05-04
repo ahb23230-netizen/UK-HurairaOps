@@ -99,7 +99,7 @@ export default function TrustBadge() {
           <p className="text-sm text-gray-500">See how your badge will look on your website</p>
         </div>
         <div className="p-8">
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 flex items-center justify-center min-h-[200px]">
+                          <div className="rounded-xl p-12 flex items-center justify-center min-h-[200px]" style={{ backgroundColor: '#0a0a0f' }}>
             {badgePreview()}
           </div>
         </div>
