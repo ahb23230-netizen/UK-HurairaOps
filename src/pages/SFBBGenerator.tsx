@@ -207,7 +207,10 @@ export default function SFBBGenerator() {
           <button
             onClick={generateSFBB}
             disabled={!businessType || foodTypes.length === 0}
-            className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-300 text-white py-4 rounded-xl font-semibold transition-colors"
+                        className="w-full text-white py-4 rounded-xl font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ background: 'linear-gradient(135deg, #7c3aed, #ec4899)' }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'linear-gradient(135deg, #6d28d9, #db2777)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'linear-gradient(135deg, #7c3aed, #ec4899)')}
           >
             Generate SFBB Diary
           </button>
