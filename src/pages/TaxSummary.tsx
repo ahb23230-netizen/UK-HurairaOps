@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 
 interface TaxPeriod {
@@ -178,27 +178,27 @@ export default function TaxSummary() {
       </div>
 
       {/* VAT Rate Info */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 mb-8 border border-amber-200">
+      <div className="rounded-2xl p-6 mb-8 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}>
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--bg-hover)' }}>
             <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900 mb-1">UK VAT Rates Applied</h4>
+                        <h4 className="font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>UK VAT Rates Applied</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3">
-              <div className="bg-white rounded-lg p-3">
-                <div className="text-2xl font-bold text-amber-600">20%</div>
-                <div className="text-sm text-gray-600">Standard Rate (most items)</div>
+              <div className="rounded-lg p-3" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+                <div className="text-2xl font-bold text-amber-500">20%</div>
+                <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Standard Rate (most items)</div>
               </div>
-              <div className="bg-white rounded-lg p-3">
-                <div className="text-2xl font-bold text-green-600">5%</div>
-                <div className="text-sm text-gray-600">Reduced Rate (energy, child car seats)</div>
+              <div className="rounded-lg p-3" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+                <div className="text-2xl font-bold text-green-500">5%</div>
+                <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Reduced Rate (energy, child car seats)</div>
               </div>
-              <div className="bg-white rounded-lg p-3">
-                <div className="text-2xl font-bold text-gray-600">0%</div>
-                <div className="text-sm text-gray-600">Zero Rate (food, books, children's clothing)</div>
+              <div className="rounded-lg p-3" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+                <div className="text-2xl font-bold" style={{ color: 'var(--text-muted)' }}>0%</div>
+                <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Zero Rate (food, books, children's clothing)</div>
               </div>
             </div>
           </div>
@@ -207,77 +207,79 @@ export default function TaxSummary() {
 
       {/* Transactions Table */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="p-6 border-b border-gray-100 flex items-center justify-between">
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">VAT Transactions</h3>
-            <p className="text-sm text-gray-500">Detailed breakdown for selected period</p>
-          </div>
-          <button className="text-indigo-600 hover:text-indigo-700 font-medium text-sm">
-            Download CSV
-          </button>
+      <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900">VAT Transactions</h3>
+          <p className="text-sm text-gray-500">Detailed breakdown for selected period</p>
         </div>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Date</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Description</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Category</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Type</th>
-                <th className="px-6 py-4 text-right text-sm font-semibold text-gray-900">Net Amount</th>
-                <th className="px-6 py-4 text-right text-sm font-semibold text-gray-900">VAT (20%)</th>
-                <th className="px-6 py-4 text-right text-sm font-semibold text-gray-900">Gross</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              {vatTransactions.map((transaction) => (
-                <tr key={transaction.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-900">{transaction.date}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{transaction.description}</td>
-                  <td className="px-6 py-4">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      transaction.category === 'Sales' ? 'bg-green-100 text-green-700' :
-                      transaction.category === 'Purchases' ? 'bg-blue-100 text-blue-700' :
-                      'bg-gray-100 text-gray-700'
-                    }`}>
-                      {transaction.category}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-600 capitalize">{transaction.type}</td>
-                  <td className={`px-6 py-4 text-right font-medium ${
-                    transaction.netAmount < 0 ? 'text-red-600' : 'text-gray-900'
+        <button className="text-indigo-600 hover:text-indigo-700 font-medium text-sm">
+          Download CSV
+        </button>
+      </div>
+      
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Date</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Description</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Category</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Type</th>
+              <th className="px-6 py-4 text-right text-sm font-semibold text-gray-900">Net Amount</th>
+              <th className="px-6 py-4 text-right text-sm font-semibold text-gray-900">VAT (20%)</th>
+              <th className="px-6 py-4 text-right text-sm font-semibold text-gray-900">Gross</th>
+            </tr>
+          </thead>
+          
+          <tbody className="divide-y divide-gray-200">
+            {vatTransactions?.map((transaction) => (
+              <tr key={transaction.id} className="hover:bg-gray-50 transition-colors">
+                <td className="px-6 py-4 text-sm text-gray-900">{transaction.date}</td>
+                <td className="px-6 py-4 text-sm text-gray-900">{transaction.description}</td>
+                <td className="px-6 py-4">
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    transaction.category === 'Sales' ? 'bg-green-100 text-green-700' :
+                    transaction.category === 'Purchases' ? 'bg-blue-100 text-blue-700' :
+                    'bg-gray-100 text-gray-700'
                   }`}>
-                    £{Math.abs(transaction.netAmount).toLocaleString()}
-                  </td>
-                  <td className={`px-6 py-4 text-right ${
-                    transaction.vatAmount < 0 ? 'text-red-600' : 'text-gray-600'
-                  }`}>
-                    £{Math.abs(transaction.vatAmount).toLocaleString()}
-                  </td>
-                  <td className={`px-6 py-4 text-right font-semibold ${
-                    transaction.grossAmount < 0 ? 'text-red-600' : 'text-gray-900'
-                  }`}>
-                    £{Math.abs(transaction.grossAmount).toLocaleString()}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-            <tfoot className="bg-gray-50">
-              <tr>
-                <td colSpan={4} className="px-6 py-4 text-sm font-semibold text-gray-900">Totals</td>
-                <td className="px-6 py-4 text-right font-semibold text-gray-900">
-                  £{vatTransactions.reduce((sum, t) => sum + t.netAmount, 0).toLocaleString()}
+                    {transaction.category}
+                  </span>
                 </td>
-                <td className="px-6 py-4 text-right font-semibold text-gray-900">
-                  £{vatTransactions.reduce((sum, t) => sum + t.vatAmount, 0).toLocaleString()}
+                <td className="px-6 py-4 text-sm text-gray-600 capitalize">{transaction.type}</td>
+                <td className={`px-6 py-4 text-right font-medium ${
+                  transaction.netAmount < 0 ? 'text-red-600' : 'text-gray-900'
+                }`}>
+                  £{Math.abs(transaction.netAmount).toLocaleString()}
                 </td>
-                <td className="px-6 py-4 text-right font-semibold text-gray-900">
-                  £{vatTransactions.reduce((sum, t) => sum + t.grossAmount, 0).toLocaleString()}
+                <td className={`px-6 py-4 text-right ${
+                  transaction.vatAmount < 0 ? 'text-red-600' : 'text-gray-600'
+                }`}>
+                  £{Math.abs(transaction.vatAmount).toLocaleString()}
+                </td>
+                <td className={`px-6 py-4 text-right font-semibold ${
+                  transaction.grossAmount < 0 ? 'text-red-600' : 'text-gray-900'
+                }`}>
+                  £{Math.abs(transaction.grossAmount).toLocaleString()}
                 </td>
               </tr>
-            </tfoot>
-          </table>
-        </div>
+            ))}
+          </tbody>
+          
+          <tfoot className="bg-gray-50">
+            <tr>
+              <td colSpan={4} className="px-6 py-4 text-sm font-semibold text-gray-900">Totals</td>
+              <td className="px-6 py-4 text-right font-semibold text-gray-900">
+                £{vatTransactions?.reduce((sum, t) => sum + t.netAmount, 0).toLocaleString()}
+              </td>
+              <td className="px-6 py-4 text-right font-semibold text-gray-900">
+                £{vatTransactions?.reduce((sum, t) => sum + t.vatAmount, 0).toLocaleString()}
+              </td>
+              <td className="px-6 py-4 text-right font-semibold text-gray-900">
+                £{vatTransactions?.reduce((sum, t) => sum + t.grossAmount, 0).toLocaleString()}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
 
       {/* Export Modal */}
