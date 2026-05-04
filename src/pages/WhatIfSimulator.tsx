@@ -180,8 +180,8 @@ export default function WhatIfSimulator() {
         </div>
 
         {/* Current Metrics */}
-        <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-6 mb-8 border border-purple-100">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Your Current Business Metrics</h2>
+      <div className="rounded-2xl p-6 mb-8 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}>
+          <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Your Current Business Metrics</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div className="bg-white rounded-xl p-4 text-center shadow-sm">
               <p className="text-2xl font-bold text-gray-900">£{currentMetrics.monthlyProfit.toLocaleString()}</p>
