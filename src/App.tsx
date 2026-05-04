@@ -42,6 +42,7 @@ import TrustBadge from './pages/TrustBadge';
 import CompetitorBenchmarking from './pages/CompetitorBenchmarking';
 import ReviewIntelligence from './pages/ReviewIntelligence';
 import AIActionEngine from './pages/AIActionEngine';
+import SmartCostControl from './pages/SmartCostControl';
 
 // Page wrapper to remove Layout import from individual pages
 function PageWrapper({ children }: { children: React.ReactNode }) {
@@ -229,6 +230,11 @@ function AppRoutes() {
             <Route path="/ai-action-engine" element={
         <ProtectedRoute>
           <AIActionEngine />
+        </ProtectedRoute>
+      } />
+            <Route path="/smart-cost-control" element={
+        <ProtectedRoute>
+          <SmartCostControl />
         </ProtectedRoute>
       } />
     </Routes>
