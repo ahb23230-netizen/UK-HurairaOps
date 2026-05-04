@@ -106,7 +106,10 @@ export default function SupplierPriceTracker() {
     if (change < 0) return 'text-green-600 bg-green-50';
     return 'text-gray-600 bg-gray-50';
   };
-
+  const getSupplierHeaderStyle = (rating: number) => {
+    if (rating >= 4.6) return { backgroundColor: '#0f2a1a', borderColor: '#1a4a2a' };
+    return { backgroundColor: '#1e2a3a', borderColor: '#2d3f52' };
+  };
   return (
     <>
       {/* Alerts Banner */}
@@ -215,22 +218,22 @@ export default function SupplierPriceTracker() {
       {/* Supplier Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {filteredSuppliers.map((supplier) => (
-          <div key={supplier.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div key={supplier.id} className="rounded-2xl shadow-sm border overflow-hidden" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}>
             {/* Supplier Header */}
-            <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-white">
+            <div className="p-6 border-b" style={{ ...getSupplierHeaderStyle(supplier.rating), borderColor: 'rgba(255,255,255,0.1)' }}>
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">{supplier.name}</h3>
-                  <p className="text-sm text-gray-500">{supplier.category}</p>
+                  <h3 className="text-lg font-bold text-white">{supplier.name}</h3>
+                  <p className="text-sm text-white/70">{supplier.category}</p>
                 </div>
                 <div className="text-right">
                   <div className="flex items-center gap-1">
                     <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
-                    <span className="font-semibold text-gray-900">{supplier.rating}</span>
+                    <span className="font-bold text-white">{supplier.rating}</span>
                   </div>
-                  <p className="text-xs text-gray-500">Updated: {supplier.lastUpdated}</p>
+                  <p className="text-xs text-white/60">Updated: {supplier.lastUpdated}</p>
                 </div>
               </div>
             </div>
