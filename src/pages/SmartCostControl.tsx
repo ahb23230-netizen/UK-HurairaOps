@@ -113,8 +113,8 @@ export default function SmartCostControl() {
             </svg>
           </div>
           <div>
-            <p className="font-bold text-red-400">You are overspending by £{totalWeeklyLoss.toLocaleString()} this week</p>
-            <p className="text-sm text-red-300/70">Food & Beverage and Utilities are above UK benchmarks. See breakdown below.</p>
+            <p className="font-bold style={{ color: '#e05252' }}>You are overspending by £{totalWeeklyLoss.toLocaleString()} this week</p>
+            <p className="text-sm style={{ color: '#cd5c5c' }}>Food & Beverage and Utilities are above UK benchmarks. See breakdown below.</p>
           </div>
         </div>
       )}
@@ -175,7 +175,7 @@ export default function SmartCostControl() {
               </div>
 
               {cost.weeklyLoss && (
-                <p className="text-xs mt-2 font-semibold" style={{ color: '#f87171' }}>
+                <p className="text-xs mt-2 font-semibold" style={{ color: '#e05252' }}>
                   ⚠ Losing £{cost.weeklyLoss.toLocaleString()}/week above benchmark
                 </p>
               )}

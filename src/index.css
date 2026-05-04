@@ -384,3 +384,21 @@ img {
   --tw-gradient-via: var(--bg-secondary) !important;
   --tw-gradient-to: var(--bg-main) !important;
 }
+/* ===== PLATFORM-WIDE: Deep Maroon Red Standard ===== */
+.theme-dark .text-red-400,
+.theme-gaming .text-red-400,
+.theme-midnight .text-red-400 {
+  color: #e05252 !important;
+}
+
+.theme-dark .text-red-500,
+.theme-gaming .text-red-500,
+.theme-midnight .text-red-500 {
+  color: #cd5c5c !important;
+}
+
+.theme-dark .text-red-600,
+.theme-gaming .text-red-600,
+.theme-midnight .text-red-600 {
+  color: #b91c1c !important;
+}
