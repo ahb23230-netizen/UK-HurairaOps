@@ -14,7 +14,7 @@ const SubscriptionContext = createContext<SubscriptionContextType | undefined>(u
 
 export function SubscriptionProvider({ children }: { children: ReactNode }) {
   // For demo purposes, default to starter. In production, this would come from auth/user data
-  const [plan, setPlan] = useState<PlanType>('starter');
+    const [plan, setPlan] = useState<PlanType>('pro');
 
   const isPro = plan === 'pro' || plan === 'business';
   const isBusiness = plan === 'business';
