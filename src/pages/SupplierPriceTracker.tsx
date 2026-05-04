@@ -134,60 +134,64 @@ export default function SupplierPriceTracker() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        {/* Card 1 - Total Suppliers - Dark Slate */}
+        <div className="rounded-2xl p-6 shadow-sm border" style={{ backgroundColor: '#1e2a3a', borderColor: '#2d3f52' }}>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-10 h-10 bg-blue-900/50 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-500">Total Suppliers</span>
+            <span className="text-sm font-medium text-blue-300">Total Suppliers</span>
           </div>
-          <div className="text-4xl font-bold text-gray-900">{suppliers.length}</div>
-          <p className="text-sm text-gray-500 mt-1">Active Partners</p>
+          <div className="text-4xl font-bold text-white">{suppliers.length}</div>
+          <p className="text-sm text-slate-400 mt-1">Active Partners</p>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        {/* Card 2 - Items Tracked - Dark Slate */}
+        <div className="rounded-2xl p-6 shadow-sm border" style={{ backgroundColor: '#1e2a3a', borderColor: '#2d3f52' }}>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-10 h-10 bg-blue-900/50 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-500">Items Tracked</span>
+            <span className="text-sm font-medium text-blue-300">Items Tracked</span>
           </div>
-          <div className="text-4xl font-bold text-gray-900">
+          <div className="text-4xl font-bold text-white">
             {suppliers.reduce((sum, s) => sum + s.items.length, 0)}
           </div>
-          <p className="text-sm text-gray-500 mt-1">Across All Categories</p>
+          <p className="text-sm text-slate-400 mt-1">Across All Categories</p>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        {/* Card 3 - Above Market - Muted Red */}
+        <div className="rounded-2xl p-6 shadow-sm border" style={{ backgroundColor: '#2a1010', borderColor: '#4a1a1a' }}>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-10 h-10 bg-red-900/50 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-500">Above Market</span>
+            <span className="text-sm font-medium text-red-300">Above Market</span>
           </div>
-          <div className="text-4xl font-bold text-red-600">{expensiveItems.length}</div>
-          <p className="text-sm text-gray-500 mt-1">Items Need Attention</p>
+          <div className="text-4xl font-bold text-red-400">{expensiveItems.length}</div>
+          <p className="text-sm text-red-300/70 mt-1">Items Need Attention</p>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        {/* Card 4 - Avg Rating - Muted Green */}
+        <div className="rounded-2xl p-6 shadow-sm border" style={{ backgroundColor: '#0f2a1a', borderColor: '#1a4a2a' }}>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-10 h-10 bg-green-900/50 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <span className="text-sm font-medium text-gray-500">Avg Rating</span>
+            <span className="text-sm font-medium text-green-300">Avg Rating</span>
           </div>
-          <div className="text-4xl font-bold text-gray-900">
+          <div className="text-4xl font-bold text-green-400">
             {(suppliers.reduce((sum, s) => sum + s.rating, 0) / suppliers.length).toFixed(1)}
           </div>
-          <p className="text-sm text-gray-500 mt-1">Supplier Performance</p>
+          <p className="text-sm text-green-300/70 mt-1">Supplier Performance</p>
         </div>
       </div>
 
