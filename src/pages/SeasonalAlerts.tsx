@@ -120,22 +120,23 @@ export default function SeasonalAlerts() {
     <>
       {/* UK Bank Holidays & Special Events Section - Inclusive */}
       <div className="mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">UK Bank Holidays & Special Events</h2>
-        <p className="text-sm text-gray-600 mb-4">Plan your trading strategy around Britain's major public holidays and events</p>
+                <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>UK Bank Holidays & Special Events</h2>
+        <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>Plan your trading strategy around Britain's major public holidays and events</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {ukEvents.map((event) => (
             <div
               key={event.id}
-              className="p-5 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl border border-indigo-100 hover:border-indigo-200 transition-all shadow-sm"
+                            className="p-5 rounded-xl border transition-all shadow-sm"
+              style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)' }}
             >
-              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 mb-3">
+                            <div className="w-12 h-12 rounded-xl flex items-center justify-center text-indigo-400 mb-3" style={{ backgroundColor: 'var(--bg-hover)' }}>
                 {event.icon}
               </div>
-              <h3 className="font-bold text-gray-900 text-lg mb-1">{event.title}</h3>
-              <p className="text-sm text-gray-600 mb-3">{event.description}</p>
+              <h3 className="font-bold text-lg mb-1" style={{ color: 'var(--text-primary)' }}>{event.title}</h3>
+              <p className="text-sm mb-3" style={{ color: 'var(--text-muted)' }}>{event.description}</p>
               <div className="space-y-1">
                 {event.actionItems.map((item, index) => (
-                  <div key={index} className="flex items-center gap-2 text-xs text-gray-500">
+                                          <div key={index} className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-muted)' }}>
                     <svg className="w-3 h-3 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
